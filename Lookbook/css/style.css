@@ -20,11 +20,6 @@ body {
     
 }
 
-a {
-    text-decoration: none;
-    color: #777777;
-}
-
 .container {
     max-width: 1770px;
     padding-right: 50px;
@@ -32,18 +27,34 @@ a {
     margin: 0 auto;
 }
 
-i.arrow {
-    border: solid #777777;
-    border-width: 0 1px 1px 0;
-    display: inline-block;
-    padding: 2px;
-    cursor: pointer;
+@media(max-width:500px){
+    .container {
+        padding: 0;
+    }
+
+    .mainHeader--nav.active {
+        left: 0;
+    }
+
+    .mainHeader--serch.active {
+        margin-left: 50px;
+    }
 }
 
- i.down {
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
+.mainContainer {
+    max-width: 1170px;
+    padding-right: 50px;
+    padding-left: 50px;
+    margin: 0 auto;
 }
+
+
+@media(max-width:500px){
+    .mainContainer {
+        padding: 0;
+    }
+}
+
 
 .button {
     font-weight: 500;
@@ -73,8 +84,22 @@ i.arrow {
     color: #fff;
 }
 
+i.arrow {
+    border: solid #777777;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 2px;
+    cursor: pointer;
+}
 
+i.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
 
+a {
+    text-decoration: none;
+}
 
 /*---------Header---------*/
 
@@ -143,8 +168,11 @@ header {
 
 .topHeader--signin {
     width:130px;
-
     color: #999999;
+}
+
+.topHeader--signin a.active {
+    color: #00C8C8;
 }
 
 .topHeader--empty {
@@ -272,6 +300,9 @@ header {
     .mainHeader--serch {
         display: none;
     }
+
+    
+
 } 
 
 .mainHeader--logo {
@@ -349,12 +380,17 @@ header {
 .mainHeader--serch form {
     display: flex;
     margin-top: 7px;
+    
+    
+    
 }
 
 
 .mainHeader--serch input, .mainHeader--serch button {
     outline: none;
     background: transparent;
+    
+    
 }
 .mainHeader--serch input {
     width: 100%;
@@ -364,10 +400,12 @@ header {
     font-weight: light;
     font-size: 13px;
     color: #989898;
+    
 }
 
 .mainHeader--serch input::-webkit-input-placeholder {
     color: #989898;
+    
 }
 
 .mainHeader--serch button {
@@ -493,8 +531,6 @@ header {
 
 @media (max-width:768px){
    
-    
-    
     .mainHeader--top {
         padding-left: 25px;
         padding-right: 25px;
@@ -567,7 +603,17 @@ header {
 
     .mainHeader--nav.active {
         top: 0;
+        height: 320px;
+       
+    }
+
+    .mainHeader--nav.active ul {
+        padding-top: 90px;
         
+    }
+
+    .mainHeader--nav.active ul li{
+        margin-left: 50px;
     }
   
     .mainHeader--drNav {
@@ -576,14 +622,50 @@ header {
         width: 100%;
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
     }
-}
 
+    
+
+    .mainHeader--serch.active {
+        display: block;
+        z-index: 5;
+        position: absolute;
+        left: 0;
+        transition: 1.3s linear;
+        
+    }
+
+    .mainHeader--serch.active input {
+        border:1px solid #333;
+        
+    }
+
+    .mainHeader--serch.active input::-webkit-input-placeholder {
+        color: #333;
+    }
+
+    .mainHeader--serch.active button {
+        color: #333;
+    }
+
+    .mainHeader--bigBtn {
+        font-size: 18px;
+        line-height: 38px;
+        height: 140px;
+        width: auto;
+        
+    }
+    
+    .mainHeader--drSections {
+        flex-direction: column;
+    }
+
+
+}
 @media (max-width:320px){
     .mainHeader--logo {
         font-size: 20px;
     }
 }
-
 
 /* ------Intro------ */
 
@@ -669,6 +751,7 @@ header {
     display: inline-block;
     margin-right: 50px;
     transition: 0.1s linear;
+    color: #727272;
 }
 
 .content--menu a.active {
